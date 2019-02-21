@@ -1,0 +1,5 @@
+C++开头的文件夹是之前写的C++版本的动态卷积，但是速度很慢，就没用。
+data_converter.py是数据预处理的代码。
+dynamic_net.py是网络结构。
+train.py是训练的代码，run.py是执行train.py的代码。
+test.py是测试的代码，本来放在train.py里面一起跑的，因为显存不够拆开了，这个文件还没跑过。
