@@ -1,0 +1,30 @@
+pytorch自带的vgg16在nyud上的训练，同样batch数2下，只占2309MB，而我自己的网络站12G……
+自己实现的deeplab在nyud上的训练，同样batch数2下，只占2400MB左右
+自己实现的dynamicenet在nyud上训练，batch数2下，前四层的显存占用：
+	85435392
+	690203648
+	1137690624
+	4126279680
+	4244244480
+	4246210560
+	print(torch.cuda.memory_allocated())
+	transform_mat = self.trans1_1(xyz)
+	print(torch.cuda.memory_allocated())
+	feat = F.relu(self.conv1_1(feat, transform_mat))
+	print(torch.cuda.memory_allocated())
+	feat = F.relu(self.conv1_2(feat, transform_mat))
+	print(torch.cuda.memory_allocated())
+	feat, indices = self.pool1(feat)
+	print(torch.cuda.memory_allocated())
+	xyz = self.xyz_pool1(xyz, feat, indices)
+	print(torch.cuda.memory_allocated())
+
+	85402112
+	-  22118400
+	645867008
+	-  157286400
+	1093353984
+	-  157286400
+	4081943040
+	4199907840
+	4201873920

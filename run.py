@@ -11,9 +11,6 @@ parser.add_argument('--opt', type=str, default='Adam', help='the optimizer')
 parser.add_argument('--lr', type=float, default=0.001, help='learning rate (default: 0.001)')
 parser.add_argument('--restore_path', type=str, default=None, help='path to the saved model')
 '''
-
-# os.system('python train.py --model NormalNet --batch_size 50 --epoches 500 --workers 4 --opt SGD --lr 0.01 \
-#             --restore_path model/2019-02-03-08-30-37/500')
-
-# os.system('python train.py --model DynamicNet --batch_size 1 --epoches 200 --workers 4 --opt SGD --lr 0.001')  # 因为显存不够，只能先训再测然后再训，所以把epoch调小一点
-os.system('python train.py --model NormalNet --batch_size 1 --epoches 1600 --workers 4 --opt SGD --lr 0.001')
+os.system('python train_v2.py --model DynamicNet --train_batch 5 --test_batch 5 --epoches 500 --workers 4 --opt SGD --lr 0.001 --weight_decay 0.001 --restore_path model/DynamicNet_2019-02-28-16-38-31/200')
+# os.system('python train_v2.py --model DynamicNet --train_batch 5 --test_batch 5 --epoches 200 --workers 4 --opt SGD --lr 0.01 --weight_decay 0.001')
+# os.system('python train_v2.py --model NormalNet --train_batch 4 --test_batch 4 --epoches 200 --workers 4 --opt SGD --lr 0.001')
